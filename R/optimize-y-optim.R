@@ -1,5 +1,5 @@
 
-optimize_y_optim <- function(nodes, edges, gravity) {
+optimize_y_optim <- function(nodes, edges, gravity, fixed = NULL) {
 
   ## Starting state
   nodes <- optimize_y_simple(nodes, edges, gravity = gravity)
@@ -11,14 +11,17 @@ optimize_y_optim <- function(nodes, edges, gravity) {
   ## And we also rewrite the y coordinates to 1:k
   nodes <- set_integer_y(nodes)
 
-  xpos <- sort(unique(nodes$x))
-  for (pos in xpos) nodes <- bubble(nodes, edges, pos)
+  if (fixed == FALSE) {
+    xpos <- sort(unique(nodes$x))
+    for (pos in xpos) nodes <- bubble(nodes, edges, pos)
+  }
 
   ## Need to run it again, to fix vertical space between nodes
   ## But first reorder the nodes in good order
   nodes <- nodes[ base::order(nodes$x, nodes$y), ]
   nodes$y <- NULL
   optimize_y_simple(nodes, edges, gravity = gravity)
+
 }
 
 set_integer_y <- function(nodes) {

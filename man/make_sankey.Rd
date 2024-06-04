@@ -7,7 +7,7 @@
 make_sankey(
   nodes = NULL,
   edges,
-  y = c("optimal", "simple"),
+  y = c("optimal", "simple", "optimal_fixed"),
   break_edges = FALSE,
   gravity = c("center", "top", "bottom")
 )
@@ -24,7 +24,8 @@ contain the visual style of the edges.}
 
 \item{y}{How to calculate vertical coordinates of nodes, if they
 are not given in the input. \code{optimal} tries to minimize edge
-crossings, \code{simple} simply packs nodes in the order they are
+crossings, \code{optimal_fixed} is similar but preserves node y values,
+\code{simple} simply packs nodes in the order they are
 given, from bottom to top.}
 
 \item{break_edges}{Whether to plot each edge as two segments,

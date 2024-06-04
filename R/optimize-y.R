@@ -1,15 +1,23 @@
 
-optimize_y <- function(nodes, edges, mode = c("optimal", "simple"),
-                       gravity) {
+optimize_y <- function(
+  nodes, edges, mode = c("optimal", "simple", "optimal_fixed"),
+  gravity
+) {
 
   mode <- match.arg(mode)
 
   if (mode == "simple") {
-    optimize_y_simple(nodes, edges, gravity = gravity)
-
-  } else if (mode == "optimal") {
-    optimize_y_optim(nodes, edges, gravity = gravity)
+    nodes <- optimize_y_simple(nodes, edges, gravity = gravity)
   }
+  if (mode == "optimal") {
+    nodes <- optimize_y_optim(nodes, edges, gravity = gravity, fixed = FALSE)
+  }
+  if (mode == "optimal_fixed") {
+    nodes <- optimize_y_optim(nodes, edges, gravity = gravity, fixed = TRUE)
+  }
+
+  return(nodes)
+
 }
 
 

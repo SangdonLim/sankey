@@ -56,7 +56,8 @@
 #'   contain the visual style of the edges.
 #' @param y How to calculate vertical coordinates of nodes, if they
 #'   are not given in the input. \code{optimal} tries to minimize edge
-#'   crossings, \code{simple} simply packs nodes in the order they are
+#'   crossings, \code{optimal_fixed} is similar but preserves node y values,
+#'   \code{simple} simply packs nodes in the order they are
 #'   given, from bottom to top.
 #' @param break_edges Whether to plot each edge as two segments,
 #'   or a single one. Sometimes two segment plots look better.
@@ -104,7 +105,7 @@
 #' sankey(make_sankey(nodes, edges))
 
 make_sankey <- function(
-  nodes = NULL, edges, y = c("optimal", "simple"), break_edges = FALSE,
+  nodes = NULL, edges, y = c("optimal", "simple", "optimal_fixed"), break_edges = FALSE,
   gravity = c("center", "top", "bottom")) {
 
   y <- match.arg(y)
@@ -142,6 +143,7 @@ make_sankey <- function(
 
   nodes[["size"]]    <- nodes[["size"]]    %||% optimize_sizes(nodes, edges)
   nodes[["x"]]       <- nodes[["x"]]       %||% optimize_x(nodes, edges)
+  nodes[["y"]]       <- nodes[["y"]]
 
   ## We can break the edges now
   if (break_edges) {
@@ -154,7 +156,10 @@ make_sankey <- function(
       null_or_any_na(nodes[["top"]])    ||
       null_or_any_na(nodes[["center"]]) ||
       null_or_any_na(nodes[["bottom"]])) {
-    nodes <- optimize_y(nodes, edges, mode = y, gravity = gravity)
+    nodes <- optimize_y(
+      nodes, edges, mode = y,
+      gravity = gravity
+    )
   }
 
   if (null_or_any_na(nodes[["pos"]])    ||
