@@ -2,10 +2,9 @@
 % Please edit documentation in R/package.R, R/sankey.R
 \docType{package}
 \name{sankey}
-\alias{sankey}
 \alias{sankey-package}
-\alias{plot.sankey}
 \alias{sankey}
+\alias{plot.sankey}
 \title{Sankey Diagrams}
 \usage{
 \method{plot}{sankey}(x, ...)
@@ -25,6 +24,12 @@ Nothing.
 }
 \description{
 Sankey plots illustrate the flow of information or material.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/gaborcsardi/sankey#readme}
+  \item Report bugs at \url{https://github.com/gaborcsardi/sankey/issues}
+}
 
-Draw a sankey plot
 }

@@ -4,8 +4,13 @@
 \alias{make_sankey}
 \title{Create an object that describes a sankey plot}
 \usage{
-make_sankey(nodes = NULL, edges, y = c("optimal", "simple"),
-  break_edges = FALSE, gravity = c("center", "top", "bottom"))
+make_sankey(
+  nodes = NULL,
+  edges,
+  y = c("optimal", "simple"),
+  break_edges = FALSE,
+  gravity = c("center", "top", "bottom")
+)
 }
 \arguments{
 \item{nodes}{A data frame of nodes on the plot, and possibly
