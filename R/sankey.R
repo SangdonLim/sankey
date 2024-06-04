@@ -101,6 +101,7 @@ plot.sankey <- function(x, ...) sankey(x, ...)
 #' @param x The plot, created via \code{\link{make_sankey}}.
 #' @param mar Margin of the plot, see \code{mar} in the \code{par}
 #'   manual.
+#' @param xlim_expand,ylim_expand Range rxpansion factors. A value of 1 means 100% of the range will be added on both sides, effectively tripling the plotting range. (default = \code{0.2}, \code{0.1}).
 #' @param ... Additional arguments, ignored currently.
 #' @return Nothing.
 #'
@@ -108,7 +109,12 @@ plot.sankey <- function(x, ...) sankey(x, ...)
 #' @importFrom graphics par plot.new
 #' @importFrom grDevices dev.hold dev.flush
 
-sankey <- function(x, mar = c(0, 5, 0, 5) + 0.2, ...) {
+sankey <- function(
+  x, mar = c(0, 5, 0, 5) + 0.2,
+  xlim_expand = 0.2,
+  ylim_expand = 0.1,
+  ...
+) {
 
   plot.new()
 
@@ -116,9 +122,9 @@ sankey <- function(x, mar = c(0, 5, 0, 5) + 0.2, ...) {
   E <- edges(x)
 
   xrange <- range(V$x, na.rm = TRUE)
-  xlim <- xrange + (xrange[2] - xrange[1]) * c(-0.1, 0.1)
+  xlim <- xrange + (xrange[2] - xrange[1]) * c(-xlim_expand, xlim_expand)
   yrange <- range(V[, c("bottom", "top")], na.rm = TRUE)
-  ylim <- yrange + (yrange[2] - yrange[1]) * c(-0.1, 0.1)
+  ylim <- yrange + (yrange[2] - yrange[1]) * c(-ylim_expand, ylim_expand)
 
   par(mar = mar)
   par(usr = c(xlim, ylim))

@@ -9,7 +9,7 @@
 \usage{
 \method{plot}{sankey}(x, ...)
 
-sankey(x, mar = c(0, 5, 0, 5) + 0.2, ...)
+sankey(x, mar = c(0, 5, 0, 5) + 0.2, xlim_expand = 0.2, ylim_expand = 0.1, ...)
 }
 \arguments{
 \item{x}{The plot, created via \code{\link{make_sankey}}.}
@@ -18,6 +18,8 @@ sankey(x, mar = c(0, 5, 0, 5) + 0.2, ...)
 
 \item{mar}{Margin of the plot, see \code{mar} in the \code{par}
 manual.}
+
+\item{xlim_expand, ylim_expand}{Range rxpansion factors. A value of 1 means 100% of the range will be added on both sides, effectively tripling the plotting range. (default = \code{0.2}, \code{0.1}).}
 }
 \value{
 Nothing.
