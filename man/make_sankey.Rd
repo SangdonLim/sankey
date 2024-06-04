@@ -80,6 +80,7 @@ Current list of graphical parameters for edges:
   \item \code{curvestyle} Edge style, \code{sin} for sinusoid curves,
     \code{line} for straight lines.
   \item \code{lty} Line type.
+  \item \code{lwd} Line width.
   \item \code{col} Edge color, for edges with solid colors.
   \item \code{weight} Edge weight. Determines the width of the edges.
 }

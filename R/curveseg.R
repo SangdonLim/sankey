@@ -3,6 +3,7 @@
 
 curveseg <- function(x0, x1, y0, y1, width = 1, nsteps = 50,
                      colorstyle, col = "#ffcc0066", grad = NULL, lty = 1,
+                     lwd = 1,
                      curvestyle = c("sin", "line")) {
 
   curvestyle <- match.arg(curvestyle)
@@ -34,7 +35,7 @@ curveseg <- function(x0, x1, y0, y1, width = 1, nsteps = 50,
       col = grad[i], border = grad[i]
     )
 
-    lines(c(xx[i], xx[i + 1]), c(yy[i], yy[i + 1]), lty = lty, col=grad[i])
-    lines(c(xx[i], xx[i + 1]), c(yy[i] + w, yy[i + 1] + w ), lty = lty, col=grad[i])
+    lines(c(xx[i], xx[i + 1]), c(yy[i], yy[i + 1]), lty = lty, lwd = lwd, col=grad[i])
+    lines(c(xx[i], xx[i + 1]), c(yy[i] + w, yy[i + 1] + w ), lty = lty, lwd = lwd, col=grad[i])
   }
 }
