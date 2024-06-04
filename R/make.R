@@ -15,6 +15,7 @@
 #'   \item \code{shape} Shape of the node. Possible values:
 #'     \code{rectangle}, \code{point}, \code{invisible}.
 #'   \item \code{lty} Lite type, see \code{par}.
+#'   \item \code{lwd} Line width, see \code{par}.
 #'   \item \code{srt} How to rotate the label, see \code{par}.
 #'   \item \code{textcol} Label color.
 #'   \item \code{label} Label text. Defaults to node name.
@@ -119,6 +120,7 @@ make_sankey <- function(
   nodes[["col"]]     <- nodes[["col"]]     %||% color_nodes(nodes, edges)
   nodes[["shape"]]   <- nodes[["shape"]]   %||% "rectangle"
   nodes[["lty"]]     <- nodes[["lty"]]     %||% 1
+  nodes[["lwd"]]     <- nodes[["lwd"]]     %||% 1
   nodes[["srt"]]     <- nodes[["srt"]]     %||% 0
   nodes[["textcol"]] <- nodes[["textcol"]] %||% "black"
   nodes[["label"]]   <- nodes[["label"]]   %||% nodes[,1]

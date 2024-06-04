@@ -54,6 +54,7 @@ Current list of graphical parameters for nodes:
   \item \code{shape} Shape of the node. Possible values:
     \code{rectangle}, \code{point}, \code{invisible}.
   \item \code{lty} Lite type, see \code{par}.
+  \item \code{lwd} Line width, see \code{par}.
   \item \code{srt} How to rotate the label, see \code{par}.
   \item \code{textcol} Label color.
   \item \code{label} Label text. Defaults to node name.

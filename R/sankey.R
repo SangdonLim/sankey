@@ -68,7 +68,8 @@ draw.nodes <- function(x, width = 0.2) {
       rect(
         nodes$x[n] - nodes$boxw[n] / 2, nodes$bottom[n],
         nodes$x[n] + nodes$boxw[n] / 2, nodes$top[n],
-        lty = nodes$lty[n], col = nodes$col[n]
+        lty = nodes$lty[n], col = nodes$col[n],
+        lwd = nodes$lwd[n]
       )
     }
 
