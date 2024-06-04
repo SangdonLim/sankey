@@ -40,6 +40,7 @@
 #'     edges is between the colors of the nodes.
 #'   \item \code{curvestyle} Edge style, \code{sin} for sinusoid curves,
 #'     \code{line} for straight lines.
+#'   \item \code{lty} Line type.
 #'   \item \code{col} Edge color, for edges with solid colors.
 #'   \item \code{weight} Edge weight. Determines the width of the edges.
 #' }
@@ -131,6 +132,7 @@ make_sankey <- function(
 
   edges[["colorstyle"]] <- edges[["colorstyle"]] %||% "gradient"
   edges[["curvestyle"]] <- edges[["curvestyle"]] %||% "sin"
+  edges[["lty"]]        <- edges[["lty"]]        %||% 1
   edges[["col"]]        <- edges[["col"]]        %||% color_edges(nodes, edges)
   edges[["weight"]]     <- edges[["weight"]]     %||% 1
 
