@@ -74,14 +74,15 @@ Current list of graphical parameters for nodes:
 
 Current list of graphical parameters for edges:
 \itemize{
-  \item \code{colorstyle} Whether the to use a solid color (\code{col}),
+  \item \code{colorstyle} Whether the to use a \code{solid} color (specified in \code{bg}),
     or \code{gradient} to plot the edges. The color of a gradient
     edges is between the colors of the nodes.
   \item \code{curvestyle} Edge style, \code{sin} for sinusoid curves,
     \code{line} for straight lines.
+  \item \code{bg} Color to use to fill edges. Only used if \code{colorstyle} is \code{solid}.
   \item \code{lty} Line type.
   \item \code{lwd} Line width.
-  \item \code{col} Edge color, for edges with solid colors.
+  \item \code{col} Edge border color.
   \item \code{weight} Edge weight. Determines the width of the edges.
 }
 }

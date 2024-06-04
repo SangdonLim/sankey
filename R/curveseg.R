@@ -2,7 +2,9 @@
 #' @importFrom graphics lines polygon
 
 curveseg <- function(x0, x1, y0, y1, width = 1, nsteps = 50,
-                     colorstyle, col = "#ffcc0066", grad = NULL, lty = 1,
+                     colorstyle, col = "#ffcc0066", grad = NULL,
+                     bg = NULL,
+                     lty = 1,
                      lwd = 1,
                      curvestyle = c("sin", "line")) {
 
@@ -12,9 +14,8 @@ curveseg <- function(x0, x1, y0, y1, width = 1, nsteps = 50,
 
   if (colorstyle == "gradient") {
     grad <- color_ramp_palette_alpha(grad)(nsteps)
-
   } else {
-    grad <- rep(col, nsteps)
+    grad <- rep(bg, nsteps)
   }
 
   if (curvestyle == "sin" ) {
@@ -35,7 +36,7 @@ curveseg <- function(x0, x1, y0, y1, width = 1, nsteps = 50,
       col = grad[i], border = grad[i]
     )
 
-    lines(c(xx[i], xx[i + 1]), c(yy[i], yy[i + 1]), lty = lty, lwd = lwd, col=grad[i])
-    lines(c(xx[i], xx[i + 1]), c(yy[i] + w, yy[i + 1] + w ), lty = lty, lwd = lwd, col=grad[i])
+    lines(c(xx[i], xx[i + 1]), c(yy[i], yy[i + 1]), lty = lty, lwd = lwd, col = col)
+    lines(c(xx[i], xx[i + 1]), c(yy[i] + w, yy[i + 1] + w ), lty = lty, lwd = lwd, col = col)
   }
 }

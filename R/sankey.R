@@ -41,6 +41,7 @@ draw.edges <- function(x, nsteps = 50) {
       colorstyle = edges$colorstyle[i],
       grad = c(sel(n1, "col"), sel(n2, "col")),
       width = edges$weight[i],
+      bg = edges$bg[i],
       lty = edges$lty[i],
       lwd = edges$lwd[i],
       col = edges$col[i],
